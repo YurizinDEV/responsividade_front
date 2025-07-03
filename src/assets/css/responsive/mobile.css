@@ -1,0 +1,26 @@
+/* Responsividade para Footer */
+@media (max-width: 767px) {
+    .footer-links {
+        padding: 2rem 1rem;
+    }
+
+    .footer-container {
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .footer-section {
+        min-width: 200px;
+    }
+
+    .footer-logos {
+        padding: 1.5rem;
+    }
+
+    .footer-logos img {
+        height: 50px;
+    }
+}
+
+
+

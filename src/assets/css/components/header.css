@@ -1,0 +1,89 @@
+/* Header e Menu */
+header {
+    background-color: #00420c;
+    padding: 1rem;
+    position: relative;
+    border-bottom: none;
+}
+
+.botao {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: block;
+    filter: invert(1);
+}
+
+.menu {
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    background-color: #00420c;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: none;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu.show {
+    display: flex;
+}
+
+.menu li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu li:last-child {
+    border-bottom: none;
+}
+
+.menu a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: #ffffff;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+    .botao {
+        display: none;
+    }
+
+    .menu {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        border: none;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .menu li {
+        border-bottom: none;
+        margin-left: 2rem;
+    }
+
+    .menu li:first-child {
+        margin-left: 0;
+    }
+
+    .menu a {
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-weight: 500;
+    }
+
+    .menu a:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+}

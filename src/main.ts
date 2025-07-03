@@ -1,50 +1,42 @@
-import './assets/css/style.css';
+import './assets/css/index.css';
 
-const app = document.querySelector<HTMLDivElement>('#app')!
-const menu = document.querySelector<HTMLUListElement>('.menu')!
-// const mediaQuery = window.matchMedia('(min-width: 768px)')
-const menuList = document.querySelector<HTMLUListElement>('.menu')!
+const botao = document.querySelector<HTMLImageElement>("#botao")!
+const menu = document.querySelector<HTMLUListElement>("#menu")!
 
+function isMobile() {
+  return window.innerWidth < 768
+}
 
-menuList.innerHTML = `
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Sobre</a></li>
-  <li><a href="#">Serviços</a></li>
-  <li><a href="#">Contato</a></li>
-`
-const img = document.createElement('img')
-img.src = 'src/assets/images/burger-menu.svg'
-
-img.alt = 'Menu'
-menuList.prepend(img)
-
-window.addEventListener('resize', () => {
-  if (window.innerWidth >= 768) {
-    img.src = 'src/assets/images/burger-menu.svg'
-
-    menu.classList.add('desktop')
-    menu.classList.remove('mobile')
+function setMenuState(open: boolean) {
+  if (isMobile()) {
+    menu.classList.toggle("show", open)
+    menu.style.display = open ? "flex" : "none"
+    botao.src = open
+      ? "/src/assets/images/close.svg"
+      : "/src/assets/images/burger-menu.svg"
   } else {
-    menu.classList.add('mobile')
-    menu.classList.remove('desktop')
-
-    img.src = 'src/assets/images/close.svg'
+    menu.classList.remove("show")
+    menu.style.display = "flex"
+    botao.src = "/src/assets/images/burger-menu.svg"
   }
+}
+
+let menuOpen = false
+
+botao.addEventListener("click", (event) => {
+  event.preventDefault()
+  menuOpen = !menuOpen
+  setMenuState(menuOpen)
 })
 
+window.addEventListener("resize", () => {
+  if (!isMobile()) {
+    menuOpen = false
+  }
+  setMenuState(menuOpen)
+})
 
-// mediaQuery.addEventListener('change', handleMediaQueryChange)
-// handleMediaQueryChange(mediaQuery)
-
-// function handleMediaQueryChange(event: MediaQueryListEvent) {
-//   if (event.matches) {
-//     menu.classList.add('desktop')
-//     menu.classList.remove('mobile')
-//   } else {
-//     menu.classList.add('mobile')
-//     menu.classList.remove('desktop')
-//   }
-// }
+setMenuState(false)
 
 
 
