@@ -50,17 +50,21 @@
 
 .footer-logos {
     background-color: #002907;
-    padding: 2rem;
+    padding: 2rem 2.5vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
+    width: 100%;
+    margin-left: 0;
+    max-width: 100%;
 }
 
 .footer-logos img {
     height: 70px;
     width: auto;
+    max-width: 100%;
+    margin-left: 1vw;
+    margin-right: 1vw;
 }
 
 .footer-info {
